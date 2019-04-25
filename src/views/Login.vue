@@ -23,7 +23,7 @@
                     name="login"
                     label="Login"
                     type="text"
-                    v-model="model.username"
+                    v-model="model.id"
                   ></v-text-field>
                   <v-text-field
                     append-icon="lock"
@@ -31,7 +31,8 @@
                     label="Password"
                     id="password"
                     type="password"
-                    v-model="model.password"
+                    v-model="model.pw"
+                    v-on:keyup.enter="login"
                   ></v-text-field>
                 </v-form>
               </v-card-text>
@@ -59,21 +60,45 @@
 </template>
 
 <script>
+// eslint-disable-next-line
+import Util from "@/util";
+
 export default {
   data: () => ({
     loading: false,
     model: {
-      username: "admin@isockde.com",
-      password: "password"
+      id: "devfskl",
+      pw: "7788"
     }
   }),
 
   methods: {
-    login() {
+    async login() {
       this.loading = true;
-      setTimeout(() => {
-        this.$router.push("/dashboard");
-      }, 1000);
+      var param = {
+        approachType: "INSIDE",
+        userId: this.model.id,
+        userPassword: this.model.pw,
+        LANG_TYPE_CD: "en"
+      };
+      try {
+        var result = await this.$http.post(`/checkAccount.json`, param);
+        if (result.data.RESULT_CD === "VALID_ACCOUNT") {
+          result = await this.$http.post(`/j_kerol_session_check.json`, param);
+          this.userInfo = result.data.USER_INFO;
+          sessionStorage.setItem(
+            "USER_BASE_INFO_MAP",
+            JSON.stringify(result.data.USER_INFO)
+          );
+          Util.setCookie("_S_USER_ID", this.userInfo._S_USER_ID, 1);
+          this.$router.push("/dashboard");
+        } else {
+          window.getApp.$emit("APP_LOGIN_FAILED", result.data.RESULT_MSG);
+          this.loading = false;
+        }
+      } catch (error) {
+        this.loading = false;
+      }
     }
   }
 };

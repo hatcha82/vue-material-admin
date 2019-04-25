@@ -2,8 +2,14 @@
   <div id="appRoot">
     <template v-if="!$route.meta.public">
       <v-app id="inspire" class="app">
-        <app-drawer class="app--drawer"></app-drawer>
-        <app-toolbar class="app--toolbar"></app-toolbar>
+        <app-drawer
+          v-if="this.$route.path !== '/'"
+          class="app--drawer"
+        ></app-drawer>
+        <app-toolbar
+          v-if="this.$route.path !== '/'"
+          class="app--toolbar"
+        ></app-toolbar>
         <v-content>
           <!-- Page Header -->
           <page-header v-if="$route.meta.breadcrumb"></page-header>
@@ -11,7 +17,11 @@
             <router-view></router-view>
           </div>
           <!-- App Footer -->
-          <v-footer height="auto" class="white pa-3 app--footer">
+          <v-footer
+            v-if="this.$route.path !== '/'"
+            height="auto"
+            class="white pa-3 app--footer"
+          >
             <span class="caption"
               >isocked.com Design &copy; {{ new Date().getFullYear() }}</span
             >
@@ -24,6 +34,7 @@
         <app-fab></app-fab>
         <!-- theme setting -->
         <v-btn
+          v-if="this.$route.path !== '/'"
           small
           fab
           dark
@@ -95,7 +106,11 @@ export default {
     }
   }),
 
-  computed: {},
+  computed: {
+    hide() {
+      return this.$route.path === "/login" || this.$route.path === "/register";
+    }
+  },
 
   created() {
     AppEvents.forEach(item => {

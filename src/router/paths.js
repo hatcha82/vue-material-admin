@@ -53,12 +53,12 @@ export default [
     meta: {},
     name: "Root",
     redirect: {
-      name: "Dashboard"
+      path: "/login"
     }
   },
   {
     path: "/dashboard",
-    meta: { breadcrumb: true },
+    meta: { breadcrumb: true, requiresAuth: true },
     name: "Dashboard",
     component: () =>
       import(/* webpackChunkName: "routes" */

@@ -49,7 +49,16 @@ const randomElement = (arr = []) => {
 const kebab = str => {
   return (str || "").replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 };
-
+const setCookie = function(name, value, min) {
+  var date = new Date();
+  date.setTime(date.getTime() + min * 60 * 1000);
+  document.cookie =
+    name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
+};
+const getCookie = function(name) {
+  var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
+  return value ? value[2] : null;
+};
 const toggleFullScreen = () => {
   let doc = window.document;
   let docEl = doc.documentElement;
@@ -80,5 +89,7 @@ const toggleFullScreen = () => {
 export default {
   randomElement,
   toggleFullScreen,
-  kebab
+  kebab,
+  setCookie,
+  getCookie
 };

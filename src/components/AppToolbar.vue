@@ -94,6 +94,7 @@ export default {
         href: "#",
         title: "Logout",
         click: e => {
+          console.log(e);
           window.getApp.$emit("APP_LOGOUT");
         }
       }

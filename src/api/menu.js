@@ -7,20 +7,6 @@ const Menu = [
     name: "Dashboard"
   },
   {
-    title: "Chat",
-    group: "apps",
-    icon: "chat_bubble",
-    target: "_blank",
-    name: "Chat"
-  },
-  {
-    title: "Inbox",
-    group: "apps",
-    name: "Mail",
-    target: "_blank",
-    icon: "email"
-  },
-  {
     title: "Media",
     group: "apps",
     name: "Media",
@@ -173,6 +159,20 @@ const Menu = [
       { name: "403", title: "403", component: "AccessDenied" },
       { name: "500", title: "500", component: "ServerError" }
     ]
+  },
+  {
+    title: "Chat",
+    group: "apps",
+    icon: "chat_bubble",
+    target: "_blank",
+    name: "Chat"
+  },
+  {
+    title: "Inbox",
+    group: "apps",
+    name: "Mail",
+    target: "_blank",
+    icon: "email"
   }
 ];
 // reorder menu

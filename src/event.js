@@ -2,7 +2,7 @@ export default [
   {
     name: "APP_LOGIN_SUCCESS",
     callback: function(e) {
-      this.$router.push({ path: "dashboard" });
+      this.$router.push({ path: "/dashboard" });
     }
   },
   {
@@ -25,6 +25,17 @@ export default [
     callback: function(e) {
       this.$router.push("/login");
       this.$message.error("Token has expired");
+    }
+  },
+  {
+    name: "APP_LOGIN_FAILED",
+    callback: function(msg) {
+      msg = msg.replace(/(<([^>]+)>)/gi, "");
+      this.snackbar = {
+        show: true,
+        color: "red",
+        text: msg
+      };
     }
   },
   {
