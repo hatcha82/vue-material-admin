@@ -11,6 +11,7 @@
     >
     </v-text-field>
     <v-spacer></v-spacer>
+    {{ user._S_USER_NM }}
     <v-btn icon @click="handleFullScreen()">
       <v-icon>fullscreen</v-icon>
     </v-btn>
@@ -65,6 +66,7 @@
 </template>
 <script>
 import NotificationList from "@/components/widgets/list/NotificationList";
+import { mapState } from "vuex";
 import Util from "@/util";
 export default {
   name: "app-toolbar",
@@ -101,6 +103,7 @@ export default {
     ]
   }),
   computed: {
+    ...mapState(["isUserLoggedIn", "user"]),
     toolbarColor() {
       return this.$vuetify.options.extra.mainNav;
     }

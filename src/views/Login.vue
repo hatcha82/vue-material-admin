@@ -91,6 +91,9 @@ export default {
             JSON.stringify(result.data.USER_INFO)
           );
           Util.setCookie("_S_USER_ID", this.userInfo._S_USER_ID, 1);
+          this.$store.dispatch("setToken", this.userInfo._S_USER_ID);
+          this.$store.dispatch("setUser", result.data.USER_INFO);
+
           this.$router.push("/dashboard");
         } else {
           window.getApp.$emit("APP_LOGIN_FAILED", result.data.RESULT_MSG);
