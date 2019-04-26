@@ -9,9 +9,10 @@
         <v-flex lg6 sm6 xs12>
           <router-link to="/dashboard" tag="div" style="cursor: pointer;">
             <mini-statistic
-              icon="fas fa-chart-bar"
+              icon="dashboard"
               :title="$t('PGM.WH1070090')"
               color="cyan darken-4"
+              subTitle="Performance"
             >
             </mini-statistic>
           </router-link>
@@ -21,6 +22,7 @@
             icon="fas fa-route"
             :title="$t('LBL.TRACKING')"
             color="light-blue"
+            subTitle="Sea/Air/Inland"
           >
           </mini-statistic>
         </v-flex>

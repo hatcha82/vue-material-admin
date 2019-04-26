@@ -1,6 +1,6 @@
 <template>
   <div id="themeSetting">
-    <v-toolbar color="blue" dark>
+    <v-toolbar color="primary" dark>
       <v-toolbar-title>
         Theme Settings
       </v-toolbar-title>
