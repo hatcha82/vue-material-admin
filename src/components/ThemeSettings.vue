@@ -8,6 +8,17 @@
     <v-container>
       <v-layout column>
         <v-flex>
+          <div class="language-options">
+            <v-subheader class="px-1 my-2">
+              {{ $t("LBL.LANGUAGE") }}
+            </v-subheader>
+            <v-divider></v-divider>
+            <div class="my-3">
+              <locale-changer />
+            </div>
+          </div>
+        </v-flex>
+        <v-flex>
           <v-subheader class="px-1 my-2">
             Color Option
           </v-subheader>
@@ -65,7 +76,11 @@
 
 <script>
 import colors from "vuetify/es5/util/colors";
+import LocaleChanger from "@/components/common/LocaleChanger";
 export default {
+  components: {
+    LocaleChanger
+  },
   data() {
     return {
       themeColor: "indigo",

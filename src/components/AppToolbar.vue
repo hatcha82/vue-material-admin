@@ -2,16 +2,20 @@
   <v-toolbar color="primary" fixed dark app>
     <v-toolbar-title class="ml-0 pl-3"> </v-toolbar-title>
     <v-toolbar-side-icon @click.stop="handleDrawerToggle"></v-toolbar-side-icon>
-    <v-text-field
+    <!-- <v-text-field
       flat
       solo-inverted
       prepend-icon="search"
       label="Search"
       class="hidden-sm-and-down"
     >
-    </v-text-field>
+    </v-text-field> -->
     <v-spacer></v-spacer>
+    {{ $t("LBL.SALESMAN") }}
     {{ user._S_USER_NM }}
+
+    <!-- {{ user._S_LANG_TYPE_CD | langToFlag }} -->
+
     <v-btn icon @click="handleFullScreen()">
       <v-icon>fullscreen</v-icon>
     </v-btn>
@@ -102,6 +106,11 @@ export default {
       }
     ]
   }),
+  filters: {
+    langToFlag: function(value) {
+      return Util.getFlagByMultiLang(value);
+    }
+  },
   computed: {
     ...mapState(["isUserLoggedIn", "user"]),
     toolbarColor() {

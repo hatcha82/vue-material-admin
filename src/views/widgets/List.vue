@@ -6,7 +6,7 @@
           <message-list></message-list>
         </v-flex>
         <v-flex lg6 sm12 xs12>
-          <notification-list></notification-list>
+          <notification-list :items="notes"></notification-list>
         </v-flex>
         <v-flex lg7 sm12 xs12>
           <plain-table></plain-table>
@@ -24,6 +24,7 @@
 
 <script>
 import { getPost } from "@/api/post";
+import note from "@/api/notification";
 import MessageList from "@/components/widgets/list/MessageList";
 import NotificationList from "@/components/widgets/list/NotificationList";
 import PlainTable from "@/components/widgets/list/PlainTable";
@@ -43,6 +44,9 @@ export default {
   computed: {
     posts() {
       return getPost();
+    },
+    notes() {
+      return note;
     }
   },
   methods: {

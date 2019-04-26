@@ -248,8 +248,11 @@ export default {
     MiniStatistic,
     ChatWindow,
     VCircle,
+    // eslint-disable-next-line
     WeatherCard,
+    // eslint-disable-next-line
     PostSingleCard,
+    // eslint-disable-next-line
     PostListCard,
     ProfileCard,
     EChart,

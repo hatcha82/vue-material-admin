@@ -14,7 +14,7 @@
                     height="120"
                   />
                   <h1 class="flex my-4 primary--text">
-                    Material Admin Template
+                    {{ $t("PGM.MB1") }}
                   </h1>
                 </div>
                 <v-form>
@@ -37,7 +37,7 @@
                 </v-form>
               </v-card-text>
               <v-card-actions>
-                <v-btn icon>
+                <!-- <v-btn icon>
                   <v-icon color="blue">fa fa-facebook-square fa-lg</v-icon>
                 </v-btn>
                 <v-btn icon>
@@ -45,8 +45,9 @@
                 </v-btn>
                 <v-btn icon>
                   <v-icon color="light-blue">fa fa-twitter fa-lg</v-icon>
-                </v-btn>
+                </v-btn> -->
                 <v-spacer></v-spacer>
+                <locale-changer />
                 <v-btn block color="primary" @click="login" :loading="loading"
                   >Login</v-btn
                 >
@@ -62,8 +63,11 @@
 <script>
 // eslint-disable-next-line
 import Util from "@/util";
-
+import LocaleChanger from "@/components/common/LocaleChanger";
 export default {
+  components: {
+    LocaleChanger
+  },
   data: () => ({
     loading: false,
     model: {
@@ -71,7 +75,10 @@ export default {
       pw: "7788"
     }
   }),
-
+  mounted() {
+    console.log(this.$el.textContent); // can use $el
+    this.$i18n.locale = Util.getBrowserLang().toLowerCase();
+  },
   methods: {
     async login() {
       this.loading = true;
@@ -79,22 +86,25 @@ export default {
         approachType: "INSIDE",
         userId: this.model.id,
         userPassword: this.model.pw,
-        LANG_TYPE_CD: "en"
+        LANG_TYPE_CD: Util.getBrowserLang()
       };
       try {
         var result = await this.$http.post(`/checkAccount.json`, param);
         if (result.data.RESULT_CD === "VALID_ACCOUNT") {
           result = await this.$http.post(`/j_kerol_session_check.json`, param);
+          // var menu = await this.$http.post(`/getAllMenuList.json?locale=en`, param);
+          // console.log(menu)
           this.userInfo = result.data.USER_INFO;
           sessionStorage.setItem(
             "USER_BASE_INFO_MAP",
             JSON.stringify(result.data.USER_INFO)
           );
           Util.setCookie("_S_USER_ID", this.userInfo._S_USER_ID, 1);
+          this.$i18n.locale = this.userInfo._S_LANG_TYPE_CD.toLowerCase();
           this.$store.dispatch("setToken", this.userInfo._S_USER_ID);
           this.$store.dispatch("setUser", result.data.USER_INFO);
 
-          this.$router.push("/dashboard");
+          this.$router.push("/main");
         } else {
           window.getApp.$emit("APP_LOGIN_FAILED", result.data.RESULT_MSG);
           this.loading = false;

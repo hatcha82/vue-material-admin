@@ -26,7 +26,7 @@
               >isocked.com Design &copy; {{ new Date().getFullYear() }}</span
             >
             <v-spacer></v-spacer>
-            <span class="caption mr-1"> Make With Love </span>
+            <span class="caption mr-1"> {{ $t("message.hello") }}</span>
             <v-icon color="pink" small>favorite</v-icon>
           </v-footer>
         </v-content>

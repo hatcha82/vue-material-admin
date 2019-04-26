@@ -13,7 +13,7 @@
             :class="color"
           >
             <div class="headline">{{ title }}</div>
-            <span class="caption">{{ subTitle }}</span>
+            <span v-if="subTitle" class="caption">{{ subTitle }}</span>
           </div>
         </div>
       </v-container>

@@ -1,7 +1,7 @@
 <template>
   <v-card class="post-card">
     <v-toolbar color="transparent" flat dense card>
-      <v-toolbar-title class="subheading ft-200">Recent Posts</v-toolbar-title>
+      <v-toolbar-title class="subheading ft-200">{{ title }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn icon>
         <v-icon class="text--secondary">more_vert</v-icon>
@@ -66,7 +66,8 @@
 <script>
 export default {
   props: {
-    items: { type: [Array, Object] }
+    items: { type: [Array, Object] },
+    title: { type: String }
   },
 
   methods: {

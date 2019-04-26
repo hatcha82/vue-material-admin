@@ -22,6 +22,7 @@
       class="drawer-menu--scroll"
       :settings="scrollSettings"
     >
+      <kerol-menu menu-list="he" />
       <v-list dense expand>
         <template v-for="(item, i) in menus">
           <!--group with subitems-->
@@ -104,7 +105,7 @@
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-tile-action>
             <v-list-tile-content>
-              <v-list-tile-title>{{ item.title }}</v-list-tile-title>
+              <v-list-tile-title>{{ $t(item.title) }}</v-list-tile-title>
             </v-list-tile-content>
             <v-list-tile-action v-if="item.subAction">
               <v-icon class="success--text">{{ item.subAction }}</v-icon>
@@ -118,10 +119,13 @@
 <script>
 import menu from "@/api/menu";
 import VuePerfectScrollbar from "vue-perfect-scrollbar";
+import KerolMenu from "@/components/common/KerolMenu";
+
 export default {
   name: "app-drawer",
   components: {
-    VuePerfectScrollbar
+    VuePerfectScrollbar,
+    KerolMenu
   },
   props: {
     expanded: {
@@ -131,7 +135,7 @@ export default {
   },
   data: () => ({
     mini: false,
-    drawer: true,
+    drawer: false,
     menus: menu,
     scrollSettings: {
       maxScrollbarLength: 160

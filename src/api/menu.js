@@ -1,10 +1,22 @@
 const Menu = [
   { header: "Apps" },
   {
-    title: "Dashboard",
+    title: "Main",
+    group: "apps",
+    icon: "dashboard",
+    name: "Main"
+  },
+  {
+    title: "PGM.WH1070090",
     group: "apps",
     icon: "dashboard",
     name: "Dashboard"
+  },
+  {
+    title: "Language",
+    group: "apps",
+    name: "Language",
+    icon: "fa-language"
   },
   {
     title: "Media",

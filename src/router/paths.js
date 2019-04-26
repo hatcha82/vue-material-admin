@@ -57,6 +57,14 @@ export default [
     }
   },
   {
+    path: "/main",
+    meta: { breadcrumb: true, requiresAuth: true },
+    name: "Main",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/Main.vue`)
+  },
+  {
     path: "/dashboard",
     meta: { breadcrumb: true, requiresAuth: true },
     name: "Dashboard",
@@ -64,7 +72,15 @@ export default [
       import(/* webpackChunkName: "routes" */
       `@/views/Dashboard.vue`)
   },
-
+  {
+    path: "/language",
+    meta: {},
+    name: "Language",
+    props: route => ({ type: route.query.type }),
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/development/Language.vue`)
+  },
   {
     path: "/media",
     meta: {},
