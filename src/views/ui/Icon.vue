@@ -81,7 +81,7 @@ export default {
       })
       .then(json => {
         this.material = json.icons.splice(0, 100);
-      });
+      })
     fetch("/static/data/font-awesome.json")
       .then(response => {
         return response.json();
@@ -89,7 +89,7 @@ export default {
       .then(json => {
         const version = "4.7.0";
         this.ft = json[version].splice(0, 100);
-      });
+      })
   },
   methods: {}
 };

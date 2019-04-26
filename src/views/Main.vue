@@ -2,7 +2,7 @@
   <div id="pageDashboard">
     <v-container grid-list-xl fluid>
       <v-layout row wrap>
-        <v-flex lg12 sm6 xs12>
+        <v-flex lg12 sm12 xs12>
           <v-text-field flat prepend-icon="search" label="Search">
           </v-text-field>
         </v-flex>

@@ -52,11 +52,11 @@ export default {
       switch (this.type) {
         case "bar":
           this.defaultOption.push(["series[0].type", "bar"]);
-          break;
+          break
         case "area":
           this.defaultOption.push(["series[0].type", "line"]);
           this.defaultOption.push(["series[0].areaStyle", {}]);
-          break;
+          break
         default:
           break;
       }

@@ -264,7 +264,7 @@ export default {
             (e.country || "").toLowerCase().indexOf((v || "").toLowerCase()) >
             -1
           );
-        });
+        })
         this.loading = false;
       }, 500);
     }

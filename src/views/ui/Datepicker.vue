@@ -164,7 +164,7 @@ export default {
       const d = new Date();
       d.setDate(day);
       return d.toISOString().substr(0, 10);
-    });
+    })
   },
 
   methods: {

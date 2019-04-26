@@ -469,18 +469,18 @@ Messages.map(item => {
     avatar: tmp.avatar
   };
   return item;
-});
+})
 
 // add messages to group
 Groups.map(item => {
   item.messages = Messages.filter(x => x.chatId === item.uuid);
   item.user = User().find(x => x.uuid === item.created_by);
   return item;
-});
+})
 
 // get chat group
 const getChatById = uuid => {
   return uuid !== undefined ? Groups.find(x => x.uuid === uuid) : Groups[0];
-};
+}
 
 export { Menu, Groups, getChatById };

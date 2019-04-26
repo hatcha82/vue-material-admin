@@ -39,10 +39,10 @@ Object.entries(colors).forEach(item => {
       requestAnimationFrame(function() {
         obj.dispatchEvent(new CustomEvent(name));
         running = false;
-      });
-    };
+      })
+    }
     obj.addEventListener(type, func);
-  };
+  }
   /* init - you can init any event */
   throttle("resize", "optimizedResize");
 })();
@@ -197,7 +197,7 @@ export default {
       if (this.pathOption) {
         this.pathOption.forEach(p => {
           _object.set(this.$data._defaultOption, p[0], p[1]);
-        });
+        })
       }
       this.chartInstance = ECharts.init(this.$refs.canvas, "material");
       this.chartInstance.setOption(
@@ -207,7 +207,7 @@ export default {
         setTimeout(_ => {
           this.chartInstance.resize();
         }, this.widthChangeDelay);
-      });
+      })
     },
 
     resize() {

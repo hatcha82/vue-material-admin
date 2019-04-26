@@ -21,7 +21,7 @@ const monthVisitData = shortMonth.map(m => {
     "Unique Visit": Math.floor(Math.random() * 1000) + 200,
     "Page View": Math.floor(Math.random() * 1000) + 250
   };
-});
+})
 
 const campaignData = [
   {
@@ -96,12 +96,12 @@ const StackData = StackMainData.map((item, key) => {
     max: 500,
     sales: item
   };
-});
+})
 const SinData = range(1, 12).map(i => {
   return {
     cate: "Cat" + i,
     value: (Math.sin(i / 5) * (i / 5 - 0.1) + i / 6) * 5
   };
-});
+})
 
 export { monthVisitData, campaignData, locationData, StackData, SinData };

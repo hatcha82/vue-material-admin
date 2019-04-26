@@ -148,7 +148,7 @@ export default {
   created() {
     this.$on("MAIL_REPLY_DIALOG_CLOSE", () => {
       this.replayDialog = false;
-    });
+    })
     window.AppMail = this;
   },
   methods: {

@@ -3,7 +3,7 @@ import colors from "vuetify/es5/util/colors";
 const chartColors = [];
 Object.entries(colors).forEach(item => {
   chartColors.push(item[1].base);
-});
+})
 
 export default {
   name: "v-chart",
@@ -45,7 +45,7 @@ export default {
     this.init();
     window.addEventListener("resize", () => {
       this.resize();
-    });
+    })
   },
   beforeDestroy() {
     this.clean();

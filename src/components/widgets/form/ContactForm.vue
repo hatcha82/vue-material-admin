@@ -330,7 +330,7 @@ export default {
 
       Object.keys(this.form).forEach(f => {
         this.$refs[f].reset();
-      });
+      })
     },
     submit() {
       this.formHasErrors = false;
@@ -338,7 +338,7 @@ export default {
         if (!this.form[f]) this.formHasErrors = true;
 
         this.$refs[f].validate(true);
-      });
+      })
     }
   }
 };

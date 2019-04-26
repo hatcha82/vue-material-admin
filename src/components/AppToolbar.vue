@@ -96,6 +96,15 @@ export default {
         }
       },
       {
+        icon: "fas fa-palette",
+        href: "#",
+        title: "theme",
+        click: e => {
+          console.log(e);
+          window.getApp.openThemeSettings();
+        }
+      },
+      {
         icon: "fullscreen_exit",
         href: "#",
         title: "Logout",

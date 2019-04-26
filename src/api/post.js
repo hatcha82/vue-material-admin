@@ -35,6 +35,6 @@ const posts = [
 
 const getPost = limit => {
   return limit ? posts.slice(0, limit) : posts;
-};
+}
 
 export { getPost };

@@ -44,7 +44,7 @@
 // }
 const getFlagByMultiLang = () => {
   return "kr";
-};
+}
 const getBrowserLang = () => {
   var lang = window.navigator.languages ? window.navigator.languages[0] : null;
   lang =
@@ -56,25 +56,25 @@ const getBrowserLang = () => {
 
   if (lang.indexOf("_") !== -1) lang = lang.split("_")[0];
   return lang ? lang.toUpperCase() : "EN";
-};
+}
 const randomElement = (arr = []) => {
   return arr[Math.floor(Math.random() * arr.length)];
-};
+}
 
 const kebab = str => {
   return (str || "").replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
-};
+}
 const setCookie = function(name, value, min) {
   min = 30;
   var date = new Date();
   date.setTime(date.getTime() + min * 60 * 1000);
   document.cookie =
     name + "=" + value + ";expires=" + date.toUTCString() + ";path=/";
-};
+}
 const getCookie = function(name) {
   var value = document.cookie.match("(^|;) ?" + name + "=([^;]*)(;|$)");
   return value ? value[2] : null;
-};
+}
 const toggleFullScreen = () => {
   let doc = window.document;
   let docEl = doc.documentElement;

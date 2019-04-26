@@ -230,7 +230,7 @@ MailItem.map(item => {
   let users = User.getUser();
   item.from = users.find(x => x.uuid === item.fromId);
   return item;
-});
+})
 //
 
 const MailMenu = [
@@ -298,13 +298,13 @@ const MailMenu = [
 
 const getMail = limit => {
   return limit ? MailItem.slice(0, limit) : MailItem;
-};
+}
 
 const getMailById = uuid => {
   return uuid === undefined ? MailItem[0] : MailItem.find(x => x.uuid === uuid);
-};
+}
 
 const getMailByType = type => {
   return type === "all" ? MailItem : MailItem.filter(x => x.type === type);
-};
+}
 export { getMail, MailMenu, getMailById, getMailByType };

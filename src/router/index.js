@@ -26,5 +26,5 @@ router.beforeEach((to, from, next) => {
 // eslint-disable-next-line
 router.afterEach((to, from) => {
   NProgress.done();
-});
+})
 export default router;

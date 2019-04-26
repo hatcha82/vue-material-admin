@@ -46,6 +46,6 @@ const Projects = [
 
 const getProject = limit => {
   return limit ? Projects.slice(0, limit) : Projects;
-};
+}
 
 export { Projects, getProject };

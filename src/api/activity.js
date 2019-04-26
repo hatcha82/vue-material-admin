@@ -34,7 +34,7 @@ const Items = [
 
 const getActivity = limit => {
   return limit ? Items.slice(0, limit) : Items;
-};
+}
 
 export default {
   getActivity

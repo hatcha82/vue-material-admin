@@ -651,6 +651,6 @@ const Items = [
 
 const getFile = limit => {
   return limit ? Items.slice(0, limit) : Items;
-};
+}
 
 export { getFileMenu, getFile };

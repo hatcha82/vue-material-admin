@@ -156,7 +156,7 @@ export default {
   created() {
     window.getApp.$on("APP_DRAWER_TOGGLED", () => {
       this.drawer = !this.drawer;
-    });
+    })
   },
 
   methods: {
