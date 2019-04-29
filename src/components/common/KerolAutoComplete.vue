@@ -1,6 +1,7 @@
 <template>
   <v-autocomplete
     autocomplete
+    :label="label"
     :loading="isLoading"
     cache-items
     chips
@@ -27,6 +28,7 @@ export default {
     };
   },
   props: {
+    label: { type: String },
     QID: { type: String }
   },
   watch: {

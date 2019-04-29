@@ -55,18 +55,6 @@
                           :select.sync="model.basic.CUSTOMER_CD"
                         >
                         </KerolAutoComplete>
-                        <!-- <v-autocomplete
-                          label="Company (Code, Name)"
-                          autocomplete
-                          :loading="loading"
-                          cache-items
-                          chips
-                          :items="autoComplete.customerList"
-                          item-text="CODE_NM"
-                          item-value="CODE_CD"
-                          :search-input.sync="searchCustomer"
-                          v-model="model.basic.CUSTOMER_CD"
-                        ></v-autocomplete> -->
                       </v-flex>
                       <v-flex xs6>
                         <v-subheader>Business</v-subheader>
