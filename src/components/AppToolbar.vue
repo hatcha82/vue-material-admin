@@ -92,6 +92,7 @@ export default {
         title: "Settings",
         click: e => {
           console.log(e);
+          window.getApp.$refs.kerolSettings.openSettings();
         }
       },
       {

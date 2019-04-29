@@ -409,17 +409,19 @@ export default {
       if (!val) return;
       if (val.length < 3) return;
       if (this.loading) return;
-      this.loading = true;
 
       try {
+        this.loading = true;
         var param = { KEYWORD: val };
         param.QID = "code.selectCompanyCode";
         var result = await Util.getAutoCompleteResult(param);
+
         this.autoComplete.customerList = result;
       } catch (error) {
         console.log(error);
+      } finally {
+        this.loading = false;
       }
-      this.loading = false;
     }
   },
   computed: {},

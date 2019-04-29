@@ -101,6 +101,7 @@ export default {
             `/BmCommon/selectListByQid.json`,
             this.userInfo
           );
+
           console.log(menu);
           sessionStorage.setItem(
             "USER_BASE_INFO_MAP",

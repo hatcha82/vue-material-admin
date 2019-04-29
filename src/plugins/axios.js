@@ -23,11 +23,14 @@ var deleteCookie = function (name) {
     name + "= " + "; expires=" + date.toUTCString() + "; path=/";
 };
 
-axios.defaults.baseURL = process.env.SERVER_URL || "http://localhost:8080";
+axios.defaults.baseURL =
+  process.env.SERVER_URL || "https://kerol-fw-dev.sk.kr.mybluemix.net";
+
 axios.interceptors.request.use(config => {
   var session = sessionStorage.getItem("USER_BASE_INFO_MAP");
   session = JSON.parse(session);
-  config.data = Object.assign(config.data, session);
+  console.log(config.data);
+  config.data = Object.assign(session, config.data);
   return config;
 });
 
