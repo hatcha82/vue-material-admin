@@ -12,13 +12,13 @@ const Menu = [
     icon: "dashboard",
     name: "Dashboard"
   },
-  { header: "Development" },
-  {
-    title: "Language",
-    group: "apps",
-    name: "Language",
-    icon: "fa-language"
-  },
+  // { header: "Development" },
+  // {
+  //   title: "Language",
+  //   group: "apps",
+  //   name: "Language",
+  //   icon: "fa-language"
+  // },
   {
     title: "Media",
     group: "apps",

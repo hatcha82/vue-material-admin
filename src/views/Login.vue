@@ -71,12 +71,12 @@ export default {
   data: () => ({
     loading: false,
     model: {
-      id: "devfskl",
-      pw: "7788"
+      id: "cbha",
+      pw: "g8ckdqja1013"
     }
   }),
   mounted() {
-    console.log(this.$el.textContent); // can use $el
+    // console.log(this.$el.textContent); // can use $el
     this.$i18n.locale = Util.getBrowserLang().toLowerCase();
   },
   methods: {
