@@ -44,7 +44,18 @@
                         <v-subheader>Customer</v-subheader>
                       </v-flex>
                       <v-flex xs6>
-                        <v-autocomplete
+                        <KerolAutoComplete
+                          QID="code.selectCompanyCode"
+                          label="Company(Code, Name)"
+                          autocomplete
+                          cache-items
+                          chips
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.basic.CUSTOMER_CD"
+                        >
+                        </KerolAutoComplete>
+                        <!-- <v-autocomplete
                           label="Company (Code, Name)"
                           autocomplete
                           :loading="loading"
@@ -55,7 +66,7 @@
                           item-value="CODE_CD"
                           :search-input.sync="searchCustomer"
                           v-model="model.basic.CUSTOMER_CD"
-                        ></v-autocomplete>
+                        ></v-autocomplete> -->
                       </v-flex>
                       <v-flex xs6>
                         <v-subheader>Business</v-subheader>
@@ -354,9 +365,10 @@
 <script>
 import VWidget from "@/components/VWidget";
 import LocaleChanger from "@/components/common/LocaleChanger";
+import KerolAutoComplete from "@/components/common/KerolAutoComplete";
 import Util from "@/util";
 export default {
-  components: { VWidget, LocaleChanger },
+  components: { VWidget, LocaleChanger, KerolAutoComplete },
   data() {
     return {
       e7: null,
@@ -433,6 +445,9 @@ export default {
     this.model.codeGroup = result;
   },
   methods: {
+    handler(value) {
+      alert(value);
+    },
     openSettings: async function() {
       this.fullscreen.dialog = true;
     }
