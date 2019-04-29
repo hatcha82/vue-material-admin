@@ -11,7 +11,6 @@
     >
     </v-text-field> -->
     <v-spacer></v-spacer>
-    {{ $t("LBL.SALESMAN") }}
     {{ user._S_USER_NM }}
 
     <!-- {{ user._S_LANG_TYPE_CD | langToFlag }} -->

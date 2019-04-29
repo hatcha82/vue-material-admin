@@ -8,14 +8,14 @@
               <v-card-text>
                 <div class="layout column align-center">
                   <img
-                    src="/static/m.png"
-                    alt="Vue Material Admin"
-                    width="120"
-                    height="120"
+                    src="http://kerolplay.com/resources/img/common/kerol_logo.png"
+                    alt="Kerol"
+                    width="122"
+                    height="45"
                   />
-                  <h1 class="flex my-4 primary--text">
-                    {{ $t("PGM.MB1") }}
-                  </h1>
+                  <h3 class="flex my-4 primary--text">
+                    Integrated Logistics Platform
+                  </h3>
                 </div>
                 <v-form>
                   <v-text-field
@@ -92,9 +92,16 @@ export default {
         var result = await this.$http.post(`/checkAccount.json`, param);
         if (result.data.RESULT_CD === "VALID_ACCOUNT") {
           result = await this.$http.post(`/j_kerol_session_check.json`, param);
-          // var menu = await this.$http.post(`/getAllMenuList.json?locale=en`, param);
-          // console.log(menu)
+
           this.userInfo = result.data.USER_INFO;
+          param = result.data.USER_INFO;
+          param.QID = "menu.selectAllMenuList";
+          param._S_PDA_YN = "N";
+          var menu = await this.$http.post(
+            `/BmCommon/selectListByQid.json`,
+            this.userInfo
+          );
+          console.log(menu);
           sessionStorage.setItem(
             "USER_BASE_INFO_MAP",
             JSON.stringify(result.data.USER_INFO)

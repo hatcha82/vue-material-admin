@@ -12,50 +12,59 @@
       <ul class="post--list flex-list vertical">
         <li class="post--item" v-for="(item, key) in items" :key="key">
           <a href="#" class=" post--link pa-4 layout row ma-0 text--primary">
-            <div class="post--media">
-              <img
-                :src="item.featuredImage"
-                alt=""
-                height="100"
-                class="image-scale"
-              />
-            </div>
-            <div class="post--content ml-3">
-              <h3 class="title post--title">
-                {{ item.title }}
-              </h3>
-              <div class="post--desc py-2 text--secondary">
-                {{
-                  item.desc
-                    | truncate({
-                      length: 150
-                    })
-                }}
-              </div>
-              <div class="post--meta o-flex justify-space-between">
-                <div class="post--author caption grey--text text--darken-1">
-                  <span>{{ item.author }}</span>
-                  <time class="px-2">{{ item.createdAt }}</time>
+            <v-layout wrap>
+              <v-flex xs12 sm4 md3 lg5>
+                <div class="post--media" style="text-align:center">
+                  <img
+                    :src="item.featuredImage"
+                    alt=""
+                    height="100"
+                    class="image-scale"
+                  />
                 </div>
-                <div class="social">
-                  <a @click="handleThumb" class="grey--text text--darken-1">
-                    <v-icon small>thumb_up</v-icon>
-                    <small>100+</small>
-                  </a>
-                  <a
-                    @click="handleComment"
-                    class="grey--text text--darken-1 mx-3"
-                  >
-                    <v-icon small>mode_comment</v-icon>
-                    <small>12+</small>
-                  </a>
-                  <a @click="handleFavorite" class="grey--text text--darken-1">
-                    <v-icon small>favorite</v-icon>
-                    <small>50+</small>
-                  </a>
+              </v-flex>
+              <v-flex xs12 sm8 md9 lg7>
+                <div class="post--content ml-3">
+                  <h3 class="title post--title">
+                    {{ item.title }}
+                  </h3>
+                  <div class="post--desc py-2 text--secondary">
+                    {{
+                      item.desc
+                        | truncate({
+                          length: 150
+                        })
+                    }}
+                  </div>
+                  <div class="post--meta o-flex justify-space-between">
+                    <div class="post--author caption grey--text text--darken-1">
+                      <span>{{ item.author }}</span>
+                      <time class="px-2">{{ item.createdAt }}</time>
+                    </div>
+                    <div class="social">
+                      <a @click="handleThumb" class="grey--text text--darken-1">
+                        <v-icon small>thumb_up</v-icon>
+                        <small>100+</small>
+                      </a>
+                      <a
+                        @click="handleComment"
+                        class="grey--text text--darken-1 mx-3"
+                      >
+                        <v-icon small>mode_comment</v-icon>
+                        <small>12+</small>
+                      </a>
+                      <a
+                        @click="handleFavorite"
+                        class="grey--text text--darken-1"
+                      >
+                        <v-icon small>favorite</v-icon>
+                        <small>50+</small>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
+              </v-flex>
+            </v-layout>
           </a>
         </li>
       </ul>

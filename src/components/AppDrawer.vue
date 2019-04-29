@@ -9,13 +9,19 @@
     width="260"
   >
     <v-toolbar color="primary darken-1" dark>
-      <img
-        v-bind:src="computeLogo"
-        height="36"
-        alt="Vue Material Admin Template"
-      />
+      <div
+        style="background:white;padding:5px;padding-bottom:0;border-radius:3px"
+      >
+        <img
+          src="http://kerolplay.com/resources/img/common/kerol_logo.png"
+          alt="ECC Platform"
+          height="15"
+        />
+      </div>
+
       <v-toolbar-title class="ml-0 pl-3">
-        <span class="hidden-sm-and-down">Vue Material</span>
+        <!-- hidden-sm-and-down -->
+        <span class="title">ECC Platform</span>
       </v-toolbar-title>
     </v-toolbar>
     <vue-perfect-scrollbar
@@ -156,7 +162,7 @@ export default {
   created() {
     window.getApp.$on("APP_DRAWER_TOGGLED", () => {
       this.drawer = !this.drawer;
-    })
+    });
   },
 
   methods: {
