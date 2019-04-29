@@ -57,6 +57,7 @@
           fixed
         >
           <theme-settings></theme-settings>
+          <KerolSettings ref="kerolSettings"></KerolSettings>
         </v-navigation-drawer>
       </v-app>
     </template>
@@ -87,6 +88,7 @@ import AppToolbar from "@/components/AppToolbar";
 import AppFab from "@/components/AppFab";
 import PageHeader from "@/components/PageHeader";
 import ThemeSettings from "@/components/ThemeSettings";
+import KerolSettings from "@/components/common/KerolSettings";
 import AppEvents from "./event";
 export default {
   components: {
@@ -94,7 +96,8 @@ export default {
     AppToolbar,
     AppFab,
     PageHeader,
-    ThemeSettings
+    ThemeSettings,
+    KerolSettings
   },
   data: () => ({
     expanded: true,
