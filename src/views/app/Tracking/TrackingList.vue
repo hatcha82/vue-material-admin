@@ -74,6 +74,9 @@
                     {{ props.item.POD_CD }}<br />
                     {{ props.item.ETD_DATE }}
                   </v-flex>
+                  <v-flex xs12 pl-3 pr-3>
+                    <v-divider></v-divider>
+                  </v-flex>
                   <v-flex xs12>
                     <table class="mt-2">
                       <tr>
@@ -93,11 +96,15 @@
                       </tr>
                     </table>
                   </v-flex>
+                  <v-flex xs12 pl-3 pr-3>
+                    <v-divider></v-divider>
+                  </v-flex>
                   <v-flex xs12>
                     <p class="pl-3 pr-2 text-sm-right" style="text-align:right">
                       <br />
                       Container Count : <v-icon small>fas fa-box</v-icon>
-                      {{ props.item.CNT_CNTR }}
+                      {{ props.item.CNT_CNTR }}<br />
+                      {{ props.item.CNTR_NO }}
                     </p>
                   </v-flex>
                 </v-layout>
@@ -160,35 +167,9 @@ export default {
 </script>
 
 <style scoped>
-.ft-200 {
-  font-weight: 200;
-}
-.post--item:hover {
-  background: #f6f6f6;
-}
-.post--item a {
-  text-decoration: none;
-}
-.flex-list.vertical {
-  flex-direction: column;
-}
-.flex-list li {
-  display: flex;
-  padding: 15px 0;
-  border-bottom: 1px solid #eee;
-}
-.flex-list li:last-child {
-  border: none;
-}
-
-.flexbox-centering {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-scale:hover {
-  transform: scale(1.05);
-  transition: 0.7s;
+table.v-table tbody td:first-child,
+table.v-table tbody th:first-child {
+  padding: 0;
+  padding-left: 24px;
 }
 </style>
