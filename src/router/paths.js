@@ -65,6 +65,22 @@ export default [
       `@/views/Main.vue`)
   },
   {
+    path: "/TrackingMain",
+    meta: { requiresAuth: true },
+    name: "TrackingMain",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/app/Tracking/TrackingMain.vue`)
+  },
+  {
+    path: "/TrackingDetail/:ORDER_SID",
+    meta: { requiresAuth: true },
+    name: "TrackingDetail",
+    component: () =>
+      import(/* webpackChunkName: "routes" */
+      `@/views/app/Tracking/TrackingDetail.vue`)
+  },
+  {
     path: "/dashboard",
     meta: { breadcrumb: true, requiresAuth: true },
     name: "Dashboard",

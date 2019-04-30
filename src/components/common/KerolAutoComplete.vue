@@ -5,9 +5,10 @@
     :loading="isLoading"
     cache-items
     chips
+    :multiple="multiple"
     :items="itemList"
-    item-text="CODE_NM"
-    item-value="CODE_CD"
+    item-text="CODE_TEXT"
+    :item-value="itemValue"
     :search-input.sync="search"
     v-model="select"
   ></v-autocomplete>
@@ -29,7 +30,10 @@ export default {
   },
   props: {
     label: { type: String },
-    QID: { type: String }
+    QID: { type: String },
+    multiple: { type: Boolean, default: false },
+    itemValue: { type: String, default: "CODE_CD" },
+    itemText: { type: String, default: "CODE_NM" }
   },
   watch: {
     select(newVal) {
@@ -46,6 +50,14 @@ export default {
         param.QID = this.QID;
         var result = await Util.getAutoCompleteResult(param);
 
+        var codeCd = this.itemValue;
+        var codeNm = this.itemText;
+
+        result = this._.map(result, function(obj) {
+          obj.CODE_TEXT = `[${obj[codeCd]}] ${obj[codeNm]}`;
+          return obj;
+        });
+        console.log(result);
         this.itemList = result;
       } catch (error) {
         console.log(error);

@@ -12,6 +12,12 @@ const Menu = [
     icon: "dashboard",
     name: "Dashboard"
   },
+  {
+    title: "Tracking",
+    group: "apps",
+    icon: "fas fa-route",
+    name: "TrackingMain"
+  },
   // { header: "Development" },
   // {
   //   title: "Language",

@@ -21,7 +21,7 @@
 
       <v-toolbar-title class="ml-0 pl-3">
         <!-- hidden-sm-and-down -->
-        <span class="title">ECC Platform</span>
+        <span class="title">Mobile</span>
       </v-toolbar-title>
     </v-toolbar>
     <vue-perfect-scrollbar

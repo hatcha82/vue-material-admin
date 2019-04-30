@@ -18,13 +18,15 @@
           </router-link>
         </v-flex>
         <v-flex lg6 sm6 xs12>
-          <mini-statistic
-            icon="fas fa-route"
-            :title="$t('LBL.TRACKING')"
-            color="light-blue"
-            subTitle="Sea/Air/Inland"
-          >
-          </mini-statistic>
+          <router-link to="/TrackingMain" tag="div" style="cursor: pointer;">
+            <mini-statistic
+              icon="fas fa-route"
+              :title="$t('LBL.TRACKING')"
+              color="light-blue"
+              subTitle="Sea/Air/Inland"
+            >
+            </mini-statistic>
+          </router-link>
         </v-flex>
         <!-- mini statistic  end -->
         <!-- acitivity widget -->

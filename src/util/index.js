@@ -64,6 +64,14 @@ export default {
       return [];
     }
   },
+  async getPostData(param) {
+    var result = await axios.post(`/BmCommon/selectListByQid.json`, param);
+    if (result.data.O_ERROR_FLAG === "N") {
+      return result.data.O_RESULT;
+    } else {
+      return [];
+    }
+  },
   toggleFullScreen() {
     let doc = window.document;
     let docEl = doc.documentElement;

@@ -20,7 +20,7 @@
         <v-container grid-list-xl fluid>
           <v-layout row wrap>
             <v-flex lg6 xs12>
-              <v-widget title="Basic Setting">
+              <v-widget :title="$t('PGM.TP1010010') + ' ' + $t('LBL.SETTING')">
                 <div slot="widget-content">
                   <v-container fluid>
                     <v-layout row wrap>
@@ -36,20 +36,14 @@
               </v-widget>
             </v-flex>
             <v-flex lg6 xs12>
-              <v-widget title="Basic Filters">
+              <v-widget :title="$t('PGM.TP1010010') + ' ' + $t('LBL.FILTER')">
                 <div slot="widget-content">
                   <v-container fluid>
                     <v-layout row wrap>
-                      <v-flex xs6>
-                        <v-subheader>Customer</v-subheader>
-                      </v-flex>
-                      <v-flex xs6>
+                      <v-flex xs12>
                         <KerolAutoComplete
                           QID="code.selectCompanyCode"
-                          label="Company(Code, Name)"
-                          autocomplete
-                          cache-items
-                          chips
+                          :label="$t('LBL.CUSTOMER')"
                           item-text="CODE_NM"
                           item-value="CODE_CD"
                           :select.sync="model.basic.CUSTOMER_CD"
@@ -57,7 +51,7 @@
                         </KerolAutoComplete>
                       </v-flex>
                       <v-flex xs6>
-                        <v-subheader>Business</v-subheader>
+                        <v-subheader>{{ $t("LBL.BIZ_BOUND") }}</v-subheader>
                       </v-flex>
                       <v-flex xs6>
                         <v-radio-group
@@ -73,7 +67,7 @@
                         </v-radio-group>
                       </v-flex>
                       <v-flex xs6>
-                        <v-subheader>Service</v-subheader>
+                        <v-subheader>{{ $t("LBL.SERVICE") }}</v-subheader>
                       </v-flex>
                       <v-flex xs6>
                         <v-checkbox
@@ -97,68 +91,35 @@
               </v-widget>
             </v-flex>
             <v-flex lg6 xs12>
-              <v-widget title="Tracking Filters">
+              <v-widget :title="$t('LBL.TRACKING') + ' ' + $t('LBL.FILTER')">
                 <div slot="widget-content">
                   <v-container fluid>
                     <v-layout row wrap>
-                      <v-flex xs6>
-                        <v-subheader>Origin</v-subheader>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-autocomplete
-                          label="Select"
-                          :items="items"
-                          chips
-                          tags
-                          v-model="model.tracking.ORIGIN"
-                          multi-line
-                          item-text="country"
-                          item-value="abbr"
-                          return-object
-                        >
-                          <template slot="selection" slot-scope="data">
-                            <v-chip
-                              @input="data.parent.selectItem(data.item.abbr)"
-                              class="chip--select-multi"
-                              :selected="data.selected"
-                              :key="JSON.stringify(data.item.abbr)"
-                            >
-                              <v-avatar class="accent">{{
-                                data.item.abbr.slice(0, 1).toUpperCase()
-                              }}</v-avatar>
-                              {{ data.item.country }}
-                            </v-chip>
-                          </template>
-                        </v-autocomplete>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-subheader>Destination</v-subheader>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-autocomplete
-                          label="Async items"
-                          autocomplete
-                          :loading="loading"
+                      <v-flex xs12>
+                        <KerolAutoComplete
+                          QID="code.selectSearchLocCode"
+                          :label="$t('LBL.ORIGIN')"
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.tracking.ORIGIN"
                           multiple
-                          cache-items
-                          chips
-                          required
-                          :items="items"
-                          item-text="country"
-                          item-value="country"
-                          :rules="[
-                            () =>
-                              select.length > 0 ||
-                              'You must choose at least one'
-                          ]"
-                          :search-input.sync="search"
-                          v-model="select"
-                        ></v-autocomplete>
+                        >
+                        </KerolAutoComplete>
                       </v-flex>
-                      <v-flex xs6>
-                        <v-subheader>Period</v-subheader>
+                      <v-flex xs12>
+                        <KerolAutoComplete
+                          QID="code.selectSearchLocCode"
+                          :label="$t('LBL.DEST')"
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.tracking.DESTNATION"
+                        >
+                        </KerolAutoComplete>
                       </v-flex>
-                      <v-flex xs6>
+                      <v-flex xs12>
+                        <v-subheader>{{ $t("LBL.PERIOD") }}</v-subheader>
+                      </v-flex>
+                      <v-flex xs12>
                         <v-layout row wrap>
                           <v-flex xs11 sm5>
                             <v-dialog
@@ -241,102 +202,45 @@
                           </v-flex>
                         </v-layout>
                       </v-flex>
-                      <v-flex xs6>
-                        <v-subheader>Shipper</v-subheader>
+                      <v-flex xs12>
+                        <KerolAutoComplete
+                          QID="code.selectCompanyCode"
+                          :label="$t('LBL.SHIPPER')"
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.tracking.SHIPPER"
+                        >
+                        </KerolAutoComplete>
                       </v-flex>
-                      <v-flex xs6>
-                        <v-autocomplete
-                          label="Async items"
-                          autocomplete
-                          :loading="loading"
-                          multiple
-                          cache-items
-                          chips
-                          required
-                          :items="items"
-                          item-text="country"
-                          item-value="country"
-                          :rules="[
-                            () =>
-                              select.length > 0 ||
-                              'You must choose at least one'
-                          ]"
-                          :search-input.sync="search"
-                          v-model="select"
-                        ></v-autocomplete>
+                      <v-flex xs12>
+                        <KerolAutoComplete
+                          QID="code.selectCompanyCode"
+                          :label="$t('LBL.CONSIGNEE')"
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.tracking.CONSIGNEE_CD"
+                        >
+                        </KerolAutoComplete>
                       </v-flex>
-
-                      <v-flex xs6>
-                        <v-subheader>Consignee</v-subheader>
+                      <v-flex xs12>
+                        <KerolAutoComplete
+                          QID="code.selectCompanyCode"
+                          :label="$t('LBL.CARRIER') + '/' + $t('LBL.AIR_LINER')"
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.tracking.CARRIER_CD"
+                        >
+                        </KerolAutoComplete>
                       </v-flex>
-                      <v-flex xs6>
-                        <v-autocomplete
-                          label="Async items"
-                          autocomplete
-                          :loading="loading"
-                          multiple
-                          cache-items
-                          chips
-                          required
-                          :items="items"
-                          item-text="country"
-                          item-value="country"
-                          :rules="[
-                            () =>
-                              select.length > 0 ||
-                              'You must choose at least one'
-                          ]"
-                          :search-input.sync="search"
-                          v-model="select"
-                        ></v-autocomplete>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-subheader>Carrier</v-subheader>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-autocomplete
-                          label="Async items"
-                          autocomplete
-                          :loading="loading"
-                          multiple
-                          cache-items
-                          chips
-                          required
-                          :items="items"
-                          item-text="country"
-                          item-value="country"
-                          :rules="[
-                            () =>
-                              select.length > 0 ||
-                              'You must choose at least one'
-                          ]"
-                          :search-input.sync="search"
-                          v-model="select"
-                        ></v-autocomplete>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-subheader>Agent</v-subheader>
-                      </v-flex>
-                      <v-flex xs6>
-                        <v-autocomplete
-                          label="Async items"
-                          autocomplete
-                          :loading="loading"
-                          multiple
-                          cache-items
-                          chips
-                          required
-                          :items="items"
-                          item-text="country"
-                          item-value="country"
-                          :rules="[
-                            () =>
-                              select.length > 0 ||
-                              'You must choose at least one'
-                          ]"
-                          :search-input.sync="search"
-                          v-model="select"
-                        ></v-autocomplete>
+                      <v-flex xs12>
+                        <KerolAutoComplete
+                          QID="code.selectCompanyCode"
+                          :label="$t('LBL.AGENT')"
+                          item-text="CODE_NM"
+                          item-value="CODE_CD"
+                          :select.sync="model.tracking.AGENT_CD"
+                        >
+                        </KerolAutoComplete>
                       </v-flex>
                     </v-layout>
                   </v-container>
@@ -377,7 +281,7 @@ export default {
           SERVICE_CD: ["SEA"]
         },
         tracking: {
-          ORIGIN: [],
+          ORIGIN: "",
           DESTNATION: "",
           FROM_DATE: null,
           TO_DATE: null,
